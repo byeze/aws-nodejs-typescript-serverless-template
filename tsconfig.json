@@ -1,0 +1,34 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "CommonJS",
+    "outDir": "dist",
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "strictPropertyInitialization": false,
+    "removeComments": true,
+    "forceConsistentCasingInFileNames": true,
+    "noUnusedLocals": false,
+    "noImplicitReturns": false,
+    "resolveJsonModule": true
+  },
+  "extends": "./tsconfig.paths.json",
+  "include": [
+    "src/**/*.ts",
+    "infra/**/*.ts",
+  ],
+  "exclude": [
+    "node_modules/**/*",
+    ".serverless/**/*",
+    ".vscode/**/*"
+  ],
+  "ts-node": {
+    "require": [
+      "tsconfig-paths/register"
+    ]
+  },
+  "$schema": "https://json.schemastore.org/tsconfig",
+}
