@@ -9,7 +9,7 @@ export function getCloudformationTables() {
         Type: "AWS::DynamoDB::Table",
         Properties: {
           ...Table.schema.createCloudFormationResource(),
-          TableName: parseServerlessName(Table.schema.name),
+          TableName: Table.schema.name + "${opt:stage}",
         },
       },
     });
@@ -17,12 +17,9 @@ export function getCloudformationTables() {
   return resources;
 }
 
-function parseServerlessName(name: string) {
-  return name.replace("${opt:stage}", "${self:provider.stage}");
-}
-
 function removePlaceholders(name: string) {
-  // match any ${}
-  const placeholderRegex = /-?\${.*?}/g;
-  return name.replace(placeholderRegex, "");
+  // Remove placeholders in the format ${placeholdername}
+  name = name.replace(/-\$\{.*?\}/g, "").replace(/\$\{.*?\}/g, "");
+  // Remove all special characters
+  return name.replace(/[^a-zA-Z0-9]/g, "");
 }

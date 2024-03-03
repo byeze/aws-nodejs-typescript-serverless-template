@@ -4,8 +4,13 @@ type ILambdaFormatResponseParams = {
   headers: Record<string, string | boolean>;
 };
 
+type ResponseType = Record<string, unknown> & {
+  ok: boolean;
+  data?: unknown;
+};
+
 export const formatJSONResponse = (
-  response: Record<string, unknown>,
+  response: ResponseType,
   statusCode = 200,
 ): ILambdaFormatResponseParams => {
   return {

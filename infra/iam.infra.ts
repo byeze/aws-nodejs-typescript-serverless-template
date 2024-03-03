@@ -12,8 +12,8 @@ const statements = [
     .toGetItem()
     .toScan()
     .on(
-      "$::hello-${opt:stage}",
-      "arn:aws:dynamodb:${self:provider.region}:*:table/${self:provider.environment.HELLO_TABLE}/index/*",
+      "$::accounts",
+      "arn:aws:dynamodb:${self:provider.region}:*:table/${self:provider.environment.ACCOUNTS_TABLE}/index/*",
     ),
 ];
 

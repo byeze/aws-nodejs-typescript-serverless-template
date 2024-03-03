@@ -2,6 +2,7 @@ import type { AWS } from "@serverless/typescript";
 import functions from "./src/functions";
 import environment from "./infra/environment.infra";
 import { getCloudformationTables } from "./infra/tables.infra";
+import statements from "./infra/iam.infra";
 
 const config: AWS = {
   service: "agency-api",
@@ -19,6 +20,7 @@ const config: AWS = {
     region: "us-east-1",
     environment,
     logRetentionInDays: 14,
+    iamRoleStatements: statements,
   },
   resources: {
     Resources: {
