@@ -63,5 +63,3 @@ Contributions are welcome! Please read the contributing guidelines before submit
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
-
-This README template provides a concise overview of your project, how to get started, and how to contribute. Adjust paths, URLs, and other specific details according to your project's actual configuration and repository location.

@@ -4,6 +4,7 @@ import { APIGatewayProxyEvent } from "@/types/lambda.type";
 
 const handler: APIGatewayProxyEvent = async (event) => {
   return formatJSONResponse({
+    ok: true,
     message: "Hello World (from protected route)",
     event,
   });

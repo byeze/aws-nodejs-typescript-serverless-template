@@ -5,7 +5,7 @@ import { getCloudformationTables } from "./infra/tables.infra";
 import statements from "./infra/iam.infra";
 
 const config: AWS = {
-  service: "agency-api",
+  service: "service-name-api",
   frameworkVersion: "3",
   configValidationMode: "error",
   package: {
@@ -15,7 +15,7 @@ const config: AWS = {
   provider: {
     name: "aws",
     runtime: "nodejs18.x",
-    apiName: "agency-api",
+    apiName: "service-name-api",
     stage: "${opt:stage, 'dev'}",
     region: "us-east-1",
     environment,
