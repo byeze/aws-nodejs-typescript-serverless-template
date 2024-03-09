@@ -4,12 +4,14 @@ const resources = {};
 
 export function getCloudformationTables() {
   for (const Table of Tables) {
+    const table_name = removePlaceholders(Table.schema.name);
+    console.log("table_name", table_name);
     Object.assign(resources, {
-      [removePlaceholders(Table.schema.name)]: {
+      [table_name]: {
         Type: "AWS::DynamoDB::Table",
         Properties: {
           ...Table.schema.createCloudFormationResource(),
-          TableName: Table.schema.name + "${opt:stage}",
+          TableName: table_name + "-${opt:stage}",
         },
       },
     });

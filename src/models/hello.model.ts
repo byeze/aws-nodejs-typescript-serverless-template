@@ -1,7 +1,8 @@
 import { Dyngoose } from "@ezee/dyngoose";
+import { getVariable } from "infra/environment.infra";
 
 @Dyngoose.$Table({
-  name: "hello-${opt:stage}",
+  name: getVariable("HELLO_TABLE"),
 })
 export class HelloTable extends Dyngoose.Table {
   @Dyngoose.Attribute.String()

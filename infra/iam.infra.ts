@@ -12,7 +12,7 @@ const statements = [
     .toGetItem()
     .toScan()
     .on(
-      "$::accounts",
+      "$::hello",
       "arn:aws:dynamodb:${self:provider.region}:*:table/${self:provider.environment.ACCOUNTS_TABLE}/index/*",
     ),
 ];
